@@ -1,0 +1,45 @@
+{% extends "Medical_Guest.html" %}
+{% block m3 %}
+<h1> All Medicines Data </h1>
+
+{% if data %}
+    <table border="2" width="100%">
+        <tr>
+            <td> Med_Id </td>
+            <td> Medicine Name </td>
+            <td> Company Name </td>
+            <td> Lic. No. </td>
+            <td> Price per unit </td>
+            <td> Remark </td>
+            <td colspan="2"> Manage </td>
+        </tr>
+        {% for d in data %}
+            <tr>
+                <td>{{d[0]}}</td>
+                <td>{{d[1]}}</td>
+                <td>{{d[2]}}</td>
+                <td>{{d[3]}}</td>
+                <td>{{d[4]}}</td>
+                <td>{{d[5]}}</td>
+                <td>
+                    <form method="post" action="edit_med">
+                        <input type="hidden" value="{{d[0]}}" name="t1">
+                        <button type="submit">EDIT</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="delete_med">
+                        <input type="hidden" value="{{d[0]}}" name="t1">
+                        <button type="submit">DELETE</button>
+                    </form>
+                </td>
+            </tr>
+
+
+        {% endfor %}
+
+
+    </table>
+{% endif %}
+
+{% endblock %}

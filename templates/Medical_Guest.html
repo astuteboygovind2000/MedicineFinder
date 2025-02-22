@@ -1,0 +1,62 @@
+<html>
+<head>
+<link href="../static/css/bootstrap1.css" rel="stylesheet" type="text/css" />
+<script src="../static/jquery/jquery.js"></script>
+<script>
+
+	$(document).ready(function(e) {
+        $("#item").hide;
+		$("#btn1").click(function(){
+			$("#item").slideDown();
+		});
+    });
+
+	$(document).ready(function(e) {
+		$("btn3").hide();
+		$("#btn3").click(function(){
+			$("#menu").slideDown(1000);
+		});
+    });
+</script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Medicine on Call</a>
+    <button class="navbar-toggler" id="btn1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="item">
+      <ul class="nav nav-tabs">
+  <li class="nav-item" style="padding-left:30px;">
+    <a class="nav-link" aria-current="page" href="medical_home">Home</a>
+  </li>
+  <li class="nav-item dropdown" style="padding-left:30px;">
+    <a id="btn3" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Medicine</a>
+    <ul class="dropdown-menu" id="menu">
+      <li><a class="dropdown-item" href="med_upload">Add</a></li>
+      <li><a class="dropdown-item" href="med_show">Manage</a></li>
+	</ul>
+  </li>
+  <li class="nav-item" style="padding-left:30px;">
+    <a class="nav-link" href="logout">logout</a>
+  </li>
+</ul>
+      <form class="d-flex" style="margin-left:70px;">
+        <input class="form-control me-sm-2" type="search" placeholder="Search Medicine">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+<div class="row bg-secondary" style="min-height:400px;">
+	<div class="col-lg-10 col-md-6 col-sm-12">
+        {% block m3 %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "Medical_Guest.html" %}
+{% block m3 %}
+
+<h1> Medical Block </h1>
+{% if data %}
+    <h3> Medical Name: {{data[0]}} <br/></h3>
+    {% if data[6]=="" or data[6]=="no" %}
+        <p><a href="medical_photo">Upload Photo</a></p>
+    {% else %}
+        <img src="../static/medicalphotos/{{data[6]}}" width="200" height="100" />
+        <br/>
+        <form method="post" action="change_medical_photo">
+            <input type="hidden" name="H1" value="{{data[5]}}"/>
+            <input type="hidden" name="H2" value="{{data[6]}}"/>
+            <button>Change Photo</button>
+        </form>
+    {% endif %}
+    <h4>
+        Owner Name : {{data[1]}} <br/>
+        licence Number : {{data[2]}} <br/>
+        Address : {{data[3]}} <br/>
+        Contact : {{data[4]}} <br/>
+        Email : {{data[5]}} <br/>
+        <form method="post" action="edit_medical_a">
+                    <input type="hidden" name="H1" value="{{data[5]}}">
+                    <button>EDIT</button>
+        </form>
+        <form method="POST" action="delete_medical_a">
+                    <input type="hidden" name="H1" value="{{data[5]}}">
+                    <button>DELETE</button>
+        </form>
+    </h4>
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif%}
+
+<p><a href="#"> Profile </a></p>
+<p><a href="edit_medical"> Edit Profile </a></p>
+<p><a href="show_medicals">show medicals</a></p>
+<p><a href="medical_pass_change">Change password</a> </p>
+<p><a href="med_show">Show Medicines</a> </p>
+<p><a href="med_upload">New Medicine Upload</a></p>
+<p><a href="logout">Logout</a> </p>
+
+{% endblock %}

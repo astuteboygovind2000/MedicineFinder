@@ -1,0 +1,37 @@
+{% extends "a1_guest.html" %}
+{% block m1 %}
+
+<h1> Search your Medicine </h1>
+<form action="/" method="post">
+    <input type="text" name="T1" placeholder="search and hit">
+    <button type="submit">Search</button>
+</form>
+
+{% if data %}
+    <table width="100%">
+        {% for d in data %}
+            <tr>
+                <td>
+                    <h3> Medicine Name: {{d[1]}} </h3>
+                    <p>
+                        Company: {{d[2]}} <br>
+                        Price: {{d[4]}}
+                    </p>
+                </td>
+                <td>
+                    <h3>Store: {{d[7]}}</h3>
+                    <p>
+                        Owner: {{d[8]}} <br>
+                        Address: {{d[10]}} <br>
+                        Contact: {{d[11]}} <br>
+                        Email:{{d[12]}}
+                    </p>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+{% endblock %}

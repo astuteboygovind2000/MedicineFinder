@@ -1,0 +1,127 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+<h1>Confirmation Delete Data</h1>
+
+{% if data %}
+    <form id="deleteForm" method="post" action="delete_medical_1">
+        <p>Medical Name:<input type="text" name="t1" value="{{data[0]}}"/></p>
+        <p>Owner Name:<input type="text" name="t2" value="{{data[1]}}"/></p>
+        <p>L No.:<input type="text" name="t3" value="{{data[2]}}"/></p>
+        <p>Address:<input type="text" name="t4" value="{{data[3]}}"/></p>
+        <p>Contact:<input type="text" name="t5" value="{{data[4]}}"/></p>
+        <p>Email:<input readonly type="text" name="t6" value="{{data[5]}}"/></p>
+        <button type="button" id="deleteBtn" class="btn-delete">Confirm Delete</button>
+    </form>
+
+    <!-- Custom Confirmation Popup -->
+    <div id="confirmPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Are you sure you want to delete this data?</h3>
+            <p>This action cannot be undone.</p>
+            <div class="popup-buttons">
+                <button id="confirmDelete" class="btn-confirm">Yes, Delete</button>
+                <button id="cancelDelete" class="btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Popup Overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Popup Content */
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .btn-confirm {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-delete {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-delete:hover,
+        .btn-confirm:hover,
+        .btn-cancel:hover {
+            opacity: 0.9;
+        }
+    </style>
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+<script>
+    // Get references to the elements
+    const deleteBtn = document.getElementById('deleteBtn');
+    const confirmPopup = document.getElementById('confirmPopup');
+    const cancelDelete = document.getElementById('cancelDelete');
+    const confirmDelete = document.getElementById('confirmDelete');
+    const deleteForm = document.getElementById('deleteForm');
+
+    // Show the custom confirmation popup
+    deleteBtn.addEventListener('click', function() {
+        confirmPopup.style.display = 'flex'; // Show the popup
+    });
+
+    // Hide the popup when "Cancel" is clicked
+    cancelDelete.addEventListener('click', function() {
+        confirmPopup.style.display = 'none'; // Hide the popup
+    });
+
+    // Submit the form when "Yes, Delete" is clicked
+    confirmDelete.addEventListener('click', function() {
+        deleteForm.submit(); // Submit the form
+    });
+
+    // Hide the popup if clicked outside of the popup content
+    window.onclick = function(event) {
+        if (event.target === confirmPopup) {
+            confirmPopup.style.display = 'none'; // Hide the popup
+        }
+    };
+</script>
+
+{% endblock %}

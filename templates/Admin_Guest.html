@@ -1,0 +1,75 @@
+<html>
+<head>
+<link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<script src="../static/jquery/jquery.js"></script>
+<script>
+	$(document).ready(function(e) {
+        $("#btn1").click(function(){
+			$("#item").slideToggle();
+		});
+    });
+
+	$(document).ready(function(e) {
+        $("#btn2").click(function(){
+			$("#item2").slideToggle();
+		});
+    });
+</script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid" style="height:55px;">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" ></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarColor02" id="menuu" >
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" style="padding-left:80px;">
+            <a class="nav-link" href="admin_home">Admin Home
+            </a>
+          </li>
+          <li class="nav-item" style="padding-left:30px;">
+            <a class="nav-link" href="medical_home" title="Login as medical">Medical Home
+            </a>
+          </li>
+          <li class="nav-item dropdown" style="padding-left:30px;">
+            <a id="btn1" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Admin
+            </a>
+              <ul class="dropdown-menu" id="item">
+                <li><a class="dropdown-item" href="adminreg">Add</a></li>
+                <li><a class="dropdown-item" href="show_admin">Show Admins</a></li>
+                <li><hr class="dropdown-divider"></li>
+              </ul>
+          </li>
+          <li class="nav-item dropdown" style="padding-left:30px;">
+            <a id="btn2" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Medicals
+            </a>
+              <ul class="dropdown-menu" id="item2">
+                <li><a class="dropdown-item" href="medicalreg">Add</a></li>
+                <li><a class="dropdown-item" href="show_medicals">Manage</a></li>
+                <li><hr class="dropdown-divider"></li>
+              </ul>
+          </li>
+          <li class="nav-item" style="padding-left:30px;">
+            <a class="nav-link" href="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="row bg-secondary" style="min-height:400px;">
+	<div class="col-lg-10 col-md-7 col-sm-12">
+        {% block m2 %}
+        {% endblock %}
+    </div>
+    <div class="col-lg-2 col-md-4 col-sm-12"></div>
+</div>
+
+</body>
+</html>

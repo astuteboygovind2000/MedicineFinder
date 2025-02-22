@@ -1,0 +1,31 @@
+<!-- {% extends "Admin_Guest.html" %}
+{% block m2 %} -->
+
+<h1> Administrator's Block</h1>
+<!-- {% if photo=="no" %}
+    <p><a href="admin_photo">Upload Photo</a></p>
+{% else %}
+    <img src="../static/photos/{{ photo }}" width="100" height="100" />
+    <br/>
+    <p><a href="change_admin_photo">Change Photo</a></p>
+{% endif %} -->
+{% if data %}
+    <h3> Name: {{data[0]}}</h3>
+    <h4>
+        Address : {{data[1]}} <br/>
+        Contact : {{data[2]}} <br/>
+        Email : {{data[3]}} <br/>
+        <a href="edit_admin_profile">Edit</a>
+    </h4>
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif%}
+
+<p><a href="adminreg">New Admin</a> </p>
+<p><a href="show_admin">Show Admins</a> </p>
+<p><a href="medicalreg">New Medical</a> </p>
+<p><a href="show_medicals">Manage Medicals</a> </p>
+<p><a href="admin_pass_change">Change Password</a> </p>
+<p><a href="logout">Logout</a> </p>
+
+{% endblock %}

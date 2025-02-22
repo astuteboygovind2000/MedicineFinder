@@ -1,0 +1,73 @@
+<html>
+<head>
+  <link href="../static/css/bootstrap_black_theme.css" rel="stylesheet" type="text/css" />
+  <script src="../static/jquery/jquery.slim.min.js"></script>
+  <script src="../static/jquery/popper.min.js"></script>
+  <script src="../static/jquery/bootstrap.min.js"></script>
+  <script>
+      $(document).ready(function(e) {
+          $("#btn1").click(function(){
+              $("#mymenu1").slideToggle();
+          });
+      });
+  </script>
+  <style>
+    #banner
+    {
+      height: 80px;
+      text-align: center;
+    }
+    li
+    {
+      padding-left: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container-fluid bg-info text-secondary" id="banner">
+	<h1>Medicine on call.com</h1>
+</div>
+
+
+
+<nav class="navbar navbar-expand-lg bg-info" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Medicine On Call</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" href="show_medicals_home">Medicals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login">Sign in </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="row bg-dark" style="min-height:400px;">
+	<div class="col-lg-9 col-md-9 col-sm-12">
+        {% block m1 %}
+        {% endblock %}
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12">
+
+    </div>
+</div>
+
+<div class="container-fluid" style="height:200px; background-color:#666;"></div>
+
+
+</body>
+</html>

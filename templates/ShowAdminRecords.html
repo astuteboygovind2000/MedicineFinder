@@ -1,0 +1,15 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+<h1> Admin Records</h1>
+{% if data %}
+    {% for d in data %}
+        <h3>{{d[0]}}</h3>
+        <p>
+            Address : {{d[1]}} <br>
+            Contact : {{d[2]}} <br>
+            E-mail : {{d[3]}}
+        </p>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "Medical_Guest.html" %}
+{% block m3 %}
+<h1> Enter the Details of Medicine </h1>
+<form method="post" action="med_upload">
+    <p>Medicine Name:<input type="text" name="t1" /></p>
+    <p>Company Name:<input type="text" name="t2" /></p>
+    <p>L. No.:<input type="text" name="t3" /></p>
+    <p>Unit Price:<input type="text" name="t4" /></p>
+    <p>Remark:<input type="text" name="t5" /></p>
+    <button type="submit">Add Medicine</button>
+</form>
+<a href="medical_home" ></a>
+{% if msg%}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

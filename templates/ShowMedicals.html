@@ -1,0 +1,27 @@
+{% extends "a1_guest.html" %}
+{% block m1 %}
+
+<h1> Medicals </h1>
+{% if data %}
+<!--  {{data}} // showing tupples of whole data -->
+    <br/>
+    <br/>
+    {% for d in data %}
+        <!--{{d}} // showing tpple for single row data-->
+        <h3>{{d[0]}}</h3> <!--// showing shop name-->
+        <img src="../static/medicalphotos/{{data[6]}}" width="200" height="100" />
+        <p>
+            Owner: {{d[1]}} <br/>
+            L No : {{d[2]}} <br/>
+            Address : {{d[3]}} <br/>
+            Contact : {{d[4]}} <br/>
+            E-mail : {{d[5]}}
+        </p>
+    {% endfor %}
+{% endif %}
+
+{% if msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

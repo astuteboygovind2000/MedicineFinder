@@ -1,0 +1,72 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+
+<h1>Medical Registration form</h1>
+<form method="post" action="medicalreg" >
+		<div class="form-row">
+		  <div class="form-group col-md-6">
+			<label>Medical Name</label>
+			<input type="text" id="txt1" name="t1" class="form-control"  placeholder="Enter Your Store Name">
+		  </div>
+		</div>
+		<div class="form-row">
+		  <div class="form-group col-md-6">
+			<label>Owner Name</label>
+			<input type="text" name="t2" class="form-control"  placeholder="First Name">
+			<input type="text" name="t21" class="form-control" placeholder="Last Name">
+		  </div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label>Licence Number</label>
+				<input type="text" name="t3" class="form-control" placeholder="Enter the licence number">
+			</div>
+		</div>
+		<div class="form-row">
+		  <div class="form-group col-md-6">
+			<label>Address</label><span id="er2"></span>
+			<input type="text" name="t4" class="form-control" placeholder="Address">
+		  </div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-2">
+			<label>City</label><span id="er21"></span>
+			<input type="text" name="t41" class="form-control">
+			</div>
+			<div class="form-group col-md-2">
+				<label>State</label><span id="er22"></span>
+				<input type="text" name="t42" class="form-control">
+			</div>
+			<div class="form-group col-md-2">
+				<label>Zip</label><span id="er23"></span>
+				<input type="text" name="t43" class="form-control">
+			</div>
+    	</div>
+		<div class="form-row">
+			<div class="form-group col-md-3">
+			  <label>Contact</label><span id="er3"></span>
+			  <input type="text" name="t5" class="form-control" placeholder="Contact">
+			</div>
+			<div class="form-group col-md-3">
+			  <label>Email</label><span id="er4"></span>
+			  <input type="text" name="t6" class="form-control" placeholder="Email">
+			</div>
+		</div>
+		<div class="form-row">
+			  <div class="form-group col-md-3">
+				<label>Password</label><span id="er5"></span>
+				<input name="t7" type="password" class="form-control" placeholder="Password">
+			  </div>
+			  <div class="form-group col-md-3">
+				<label>Confirm Password</label>
+				<input type="password" name="t8" class="form-control" placeholder="Password">
+			  </div>
+		</div>
+			<button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+{% if res %}
+    <h3>{{ res }}</h3>
+{% endif %}
+
+{% endblock %}

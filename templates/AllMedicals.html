@@ -1,0 +1,36 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+
+<h1>Medical Stores</h1>
+{% if data %}
+    {% for d in data %}
+        <h3>{{d[0]}}</h3>
+        <p>
+            Owner : {{d[1]}}<br>
+            Licence Number : {{d[2]}}<br>
+            Address : {{d[3]}} <br>
+            Contact : {{d[4]}}<br>
+            Email : {{d[5]}}<br>
+        </p>
+        <table>
+            <tr>
+                <td>
+                    <form method="post" action="edit_medical">
+                        <input type="hidden" name="H1" value="{{d[5]}}">
+                        <button>EDIT</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST" action="delete_medical">
+                        <input type="hidden" name="H1" value="{{d[5]}}">
+                        <button>DELETE</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

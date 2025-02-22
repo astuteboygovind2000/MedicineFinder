@@ -1,0 +1,21 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+
+<h1> My Profile </h1>
+
+{% if data %}
+    <form method="post" action="edit_admin_profile_1">
+        <p>Name:<input type="text" name="t1" value="{{data[0]}}" /> </p>
+        <p>Address:<input type="text" name="t2" value="{{data[1]}}" /> </p>
+        <p>Contact:<input type="text" name="t3" value="{{data[2]}}" /> </p>
+        <h4>
+            Email: {{data[3]}} <br/>
+        </h4>
+        <button type="submit">Save Changes</button>
+    </form>
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

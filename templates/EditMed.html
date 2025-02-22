@@ -1,0 +1,18 @@
+{% extends "Medical_Guest.html" %}
+{% block m3 %}
+<h1> Edit Medicine Details </h1>
+{% if data %}
+    <form method="post" action="edit_med_1">
+        <p>Med Id:<input readonly type="text" name="t1" value="{{data[0]}}" ></p>
+        <p>Medicine Name:<input type="text" name="t2" value="{{data[1]}}" ></p>
+        <p>Company Name:<input type="text" name="t3" value="{{data[2]}}" ></p>
+        <p>Lic No.:<input type="text" name="t4" value="{{data[3]}}" ></p>
+        <p>Price:<input type="text" name="t5" value="{{data[4]}}" ></p>
+        <p>Remark:<input type="text" name="t6" value="{{data[5]}}" ></p>
+        <p>Medical Email:<input readonly type="text" name="t7" value="{{data[6]}}" ></p>
+        <p><button type="submit" >Save Changes</button></p>
+    </form>
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+{% endblock %}
