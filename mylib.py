@@ -1,6 +1,15 @@
 import pymysql
+import os
+
 def make_connection():
-    cn = pymysql.connect(host="localhost", user="root", passwd="", port=3306, db="govind", autocommit=True)
+    cn = pymysql.connect(
+        host=os.getenv("MYSQLHOST"),
+        user=os.getenv("MYSQLUSER"),
+        passwd=os.getenv("MYSQLPASSWORD"),
+        port=int(os.getenv("MYSQLPORT")),
+        db=os.getenv("MYSQLDATABASE"),
+        autocommit=True
+    )
     cur = cn.cursor()
     return cur
 
