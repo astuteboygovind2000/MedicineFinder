@@ -2,16 +2,19 @@ import pymysql
 import os
 
 def make_connection():
-    cn = pymysql.connect(
-        host=os.getenv("MYSQLHOST"),
-        user=os.getenv("MYSQLUSER"),
-        passwd=os.getenv("MYSQLPASSWORD"),
-        port=int(os.getenv("MYSQLPORT")),
-        db=os.getenv("MYSQLDATABASE"),
-        autocommit=True
-    )
-    cur = cn.cursor()
-    return cur
+    try:
+        cn = pymysql.connect(
+            host=os.getenv("MYSQLHOST"),
+            user=os.getenv("MYSQLUSER"),
+            passwd=os.getenv("MYSQLPASSWORD"),
+            port=int(os.getenv("MYSQLPORT")),
+            db=os.getenv("MYSQLDATABASE"),
+            autocommit=True
+        )
+        return cn.cursor()
+    except Exception as e:
+        print(f"[DB ERROR] {e}")
+        raise
 
 def check_photo(email):
     cur = make_connection()
