@@ -11,9 +11,7 @@ def make_connection():
             db=os.getenv("MYSQLDATABASE"),
             autocommit=True
         )
-        cursor = conn.cursor()
-        cursor.execute("DROP TABLE IF EXISTS logindata;")
-        return cursor
+        return cn.cursor()
     except Exception as e:
         print(f"[DB ERROR] {e}")
         raise
