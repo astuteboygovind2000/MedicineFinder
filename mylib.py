@@ -11,7 +11,8 @@ def make_connection():
             db=os.getenv("MYSQLDATABASE"),
             autocommit=True
         )
-        return cn.cursor()
+        cur = cn.cursor()
+        return cur
     except Exception as e:
         print(f"[DB ERROR] {e}")
         raise
