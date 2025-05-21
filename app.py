@@ -198,7 +198,7 @@ def medicalreg():
                 g = request.form["t7"]
                 ut = "medical"
                 cur = make_connection()
-                s1 = "insert into medical_data values('" + a + "','" + b + " " + b2 + "','" + c + "','" + d + " " + d1 + " " + d2 + " " + d3 + "','" + e + "','" + f + "')"
+                s1 = "insert into (mname,owner,lno,address,contact,email) medical_data values('" + a + "','" + b + " " + b2 + "','" + c + "','" + d + " " + d1 + " " + d2 + " " + d3 + "','" + e + "','" + f + "')"
                 s2 = "insert into login_data values('" + f + "','" + g + "','" + ut + "')"
                 msg=""
                 try:
